@@ -5,6 +5,7 @@
 }
 
 <h1>Index</h1>
+<a href="@Url.Action("TodayCheckIns", "Booking")">View Today's Check-ins</a>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -12,6 +13,9 @@
 <table class="table">
     <thead>
         <tr>
+            <th>
+                Ref No.
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.CheckInDate)
             </th>
@@ -34,9 +38,6 @@
                 @Html.DisplayNameFor(model => model.DepositStatus)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.BookingReference)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.CreditCard)
             </th>
             <th>
@@ -51,6 +52,9 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookingReference)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CheckInDate)
             </td>
@@ -71,9 +75,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.DepositStatus)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BookingReference)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CreditCard.CreditCardId)

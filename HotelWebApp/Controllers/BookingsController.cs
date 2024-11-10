@@ -18,6 +18,8 @@ namespace HotelWebApp.Controllers
             _context = context;
         }
 
+        
+
         // GET: Bookings
         public async Task<IActionResult> Index()
         {

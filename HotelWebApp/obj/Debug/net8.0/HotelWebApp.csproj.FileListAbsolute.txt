@@ -515,3 +515,4 @@ D:\00 GitHub\it703-assignment2\HotelWebApp\obj\Debug\net8.0\refint\HotelWebApp.d
 D:\00 GitHub\it703-assignment2\HotelWebApp\obj\Debug\net8.0\HotelWebApp.pdb
 D:\00 GitHub\it703-assignment2\HotelWebApp\obj\Debug\net8.0\HotelWebApp.genruntimeconfig.cache
 D:\00 GitHub\it703-assignment2\HotelWebApp\obj\Debug\net8.0\ref\HotelWebApp.dll
+D:\00 GitHub\it703-assignment2\HotelWebApp\bin\Debug\net8.0\BCrypt.Net-Core.dll
