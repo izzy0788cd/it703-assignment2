@@ -24,9 +24,8 @@ public partial class User
 
     public string Phone { get; set; } = null!;
 
-    [ForeignKey("Role")]
-    [Required(ErrorMessage = "The Role field is required.")]
+    //[ForeignKey("Role")]
     public int RoleId { get; set; }
 
-    public virtual Role Role { get; set; } = null!;
+    public virtual Role Role { get; set; }
 }

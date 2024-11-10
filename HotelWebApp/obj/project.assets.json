@@ -7721,11 +7721,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\00 SIT\\IT703_Assignment_2\\HotelWebApp\\HotelWebApp.csproj",
+      "projectUniqueName": "D:\\00 GitHub\\it703-assignment2\\HotelWebApp\\HotelWebApp.csproj",
       "projectName": "HotelWebApp",
-      "projectPath": "D:\\00 SIT\\IT703_Assignment_2\\HotelWebApp\\HotelWebApp.csproj",
+      "projectPath": "D:\\00 GitHub\\it703-assignment2\\HotelWebApp\\HotelWebApp.csproj",
       "packagesPath": "C:\\Users\\Dell G3\\.nuget\\packages\\",
-      "outputPath": "D:\\00 SIT\\IT703_Assignment_2\\HotelWebApp\\obj\\",
+      "outputPath": "D:\\00 GitHub\\it703-assignment2\\HotelWebApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "G:\\Visual Studio 2022\\shared\\NuGetPackages"
@@ -7805,5 +7805,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1900",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Error occurred while getting package vulnerability data: Unable to load the service index for source https://api.nuget.org/v3/index.json."
+    }
+  ]
 }

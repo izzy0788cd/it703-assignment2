@@ -58,14 +58,31 @@ namespace HotelWebApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("RoomId,RoomTypeId,StatusId,BookingAvailable,RoomNumber,CarPark")] Room room)
+        public async Task<IActionResult> Create(RoomsDTO room)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(room);
+                Room rooms = new Room
+                {
+                    RoomId = room.RoomId,
+                    RoomNumber = room.RoomNumber,
+                    RoomTypeId = room.RoomTypeId,
+                    StatusId = room.StatusId,
+                    BookingAvailable = room.BookingAvailable,
+                    CarPark = room.CarPark,
+                };
+
+                _context.Rooms.Add(rooms);
+
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
+            foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
+            {
+                Console.WriteLine("Validation Error: " + error.ErrorMessage);  // Output errors to the console
+            }
+
             ViewData["RoomTypeId"] = new SelectList(_context.RoomTypes, "RoomTypeId", "RoomTypeId", room.RoomTypeId);
             ViewData["StatusId"] = new SelectList(_context.RoomStatuses, "StatusId", "StatusId", room.StatusId);
             return View(room);
@@ -94,7 +111,7 @@ namespace HotelWebApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("RoomId,RoomTypeId,StatusId,BookingAvailable,RoomNumber,CarPark")] Room room)
+        public async Task<IActionResult> Edit(int id, RoomsDTO room)
         {
             if (id != room.RoomId)
             {
@@ -105,7 +122,16 @@ namespace HotelWebApp.Controllers
             {
                 try
                 {
-                    _context.Update(room);
+                    var rooms = await _context.Rooms.FindAsync(id);
+
+                    rooms.RoomId = room.RoomId;
+                    rooms.StatusId = room.StatusId;
+                    rooms.RoomNumber = room.RoomNumber;
+                    rooms.RoomTypeId = room.RoomTypeId;
+                    rooms.BookingAvailable = room.BookingAvailable;
+                    rooms.CarPark = room.CarPark;
+
+                    _context.Rooms.Update(rooms);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)

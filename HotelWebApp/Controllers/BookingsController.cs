@@ -58,14 +58,33 @@ namespace HotelWebApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("BookingId,CustomerId,RoomId,CheckInDate,CheckOutDate,NumberOfGuests,DepositMade,DepositMethod,DepositStatus,BookingReference")] Booking booking)
+        public async Task<IActionResult> Create(BookingsDTO booking)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(booking);
+                Booking bookings = new Booking
+                {
+                    CustomerId = booking.CustomerId,
+                    RoomId = booking.RoomId,
+                    CheckInDate = booking.CheckInDate,
+                    CheckOutDate = booking.CheckOutDate,
+                    NumberOfGuests = booking.NumberOfGuests,
+                    DepositMade = booking.DepositMade,
+                    DepositMethod = booking.DepositMethod,
+                    DepositStatus = booking.DepositStatus,
+                    BookingReference = booking.BookingReference,
+                };
+
+                _context.Bookings.Add(bookings);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
+            foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
+            {
+                Console.WriteLine("Validation Error: " + error.ErrorMessage);  // Output errors to the console
+            }
+
             ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerId", booking.CustomerId);
             ViewData["RoomId"] = new SelectList(_context.Rooms, "RoomId", "RoomId", booking.RoomId);
             return View(booking);
@@ -94,7 +113,7 @@ namespace HotelWebApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("BookingId,CustomerId,RoomId,CheckInDate,CheckOutDate,NumberOfGuests,DepositMade,DepositMethod,DepositStatus,BookingReference")] Booking booking)
+        public async Task<IActionResult> Edit(int id, BookingsDTO booking)
         {
             if (id != booking.BookingId)
             {
@@ -105,7 +124,19 @@ namespace HotelWebApp.Controllers
             {
                 try
                 {
-                    _context.Update(booking);
+                    var bookings = await _context.Bookings.FindAsync(id);
+
+                    bookings.CustomerId = booking.CustomerId;
+                    bookings.RoomId = booking.RoomId;
+                    bookings.CheckInDate = booking.CheckInDate;
+                    bookings.CheckOutDate = booking.CheckOutDate;
+                    bookings.NumberOfGuests = booking.NumberOfGuests;
+                    bookings.DepositMade = booking.DepositMade;
+                    bookings.DepositMethod = booking.DepositMethod;
+                    bookings.DepositStatus = booking.DepositStatus;
+                    bookings.BookingReference = booking.BookingReference;
+
+                    _context.Bookings.Update(bookings);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
