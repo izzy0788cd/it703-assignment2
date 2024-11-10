@@ -56,35 +56,27 @@ namespace HotelWebApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(UsersDTO usersDTO)
+        public async Task<IActionResult> Create(UsersDTO user)
         {
             if (ModelState.IsValid)
             {
-
                 User users = new User
                 {
-                    FirstName = usersDTO.FirstName,
-                    LastName = usersDTO.LastName,
-                    Password = usersDTO.Password,
-                    Position = usersDTO.Position,
-                    Email = usersDTO.Email,
-                    Phone = usersDTO.Phone,
-                    RoleId = usersDTO.RoleId
+                    FirstName = user.FirstName,
+                    LastName = user.LastName,
+                    Password = user.Password,
+                    Position = user.Position,
+                    Email = user.Email,
+                    Phone = user.Phone,
+                    RoleId = user.RoleId,
                 };
 
-                _context.Add(users);
+                _context.Users.Add(users);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-
-            foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
-            {
-                Console.WriteLine("Validation Error: " + error.ErrorMessage);  // Output errors to the console
-            }
-
-
-            ViewData["RoleId"] = new SelectList(_context.Roles, "RoleId", "RoleName", usersDTO.RoleId);
-            return View(usersDTO);
+            ViewData["RoleId"] = new SelectList(_context.Roles, "RoleId", "RoleName", user.RoleId);
+            return View(user);
         }
 
         // GET: Users/Edit/5
@@ -109,9 +101,9 @@ namespace HotelWebApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, UsersDTO usersDTO)
+        public async Task<IActionResult> Edit(int id, UsersDTO user)
         {
-            if (id != usersDTO.UserID)
+            if (id != user.UserId)
             {
                 return NotFound();
             }
@@ -122,21 +114,20 @@ namespace HotelWebApp.Controllers
                 {
                     var users = await _context.Users.FindAsync(id);
 
-                    users.FirstName = usersDTO.FirstName;
-                    users.LastName = usersDTO.LastName;
-                    users.Password = usersDTO.Password;
-                    users.Position = usersDTO.Position;
-                    users.Email = usersDTO.Email;
-                    users.Phone = usersDTO.Phone;
-                    users.RoleId = usersDTO.RoleId;
-                    
+                    users.FirstName = user.FirstName;
+                    users.LastName = user.LastName;
+                    users.Password = user.Password;
+                    users.Position = user.Position;
+                    users.Email = user.Email;
+                    users.Phone = user.Phone;
+                    users.RoleId = user.RoleId;
 
                     _context.Users.Update(users);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!UserExists(usersDTO.UserID))
+                    if (!UserExists(user.UserId))
                     {
                         return NotFound();
                     }
@@ -147,14 +138,8 @@ namespace HotelWebApp.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-
-            foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
-            {
-                Console.WriteLine("Validation Error: " + error.ErrorMessage);  // Output errors to the console
-            }
-
-            ViewData["RoleId"] = new SelectList(_context.Roles, "RoleId", "RoleId", usersDTO.RoleId);
-            return View(usersDTO);
+            ViewData["RoleId"] = new SelectList(_context.Roles, "RoleId", "RoleName", user.RoleId);
+            return View(user);
         }
 
         // GET: Users/Delete/5

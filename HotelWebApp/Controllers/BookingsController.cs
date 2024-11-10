@@ -21,7 +21,7 @@ namespace HotelWebApp.Controllers
         // GET: Bookings
         public async Task<IActionResult> Index()
         {
-            var hotelDbContext = _context.Bookings.Include(b => b.Customer).Include(b => b.Room);
+            var hotelDbContext = _context.Bookings.Include(b => b.CreditCard).Include(b => b.Customer).Include(b => b.Room);
             return View(await hotelDbContext.ToListAsync());
         }
 
@@ -34,6 +34,7 @@ namespace HotelWebApp.Controllers
             }
 
             var booking = await _context.Bookings
+                .Include(b => b.CreditCard)
                 .Include(b => b.Customer)
                 .Include(b => b.Room)
                 .FirstOrDefaultAsync(m => m.BookingId == id);
@@ -48,8 +49,9 @@ namespace HotelWebApp.Controllers
         // GET: Bookings/Create
         public IActionResult Create()
         {
+            ViewData["CreditCardId"] = new SelectList(_context.CreditCards, "CreditCardId", "CreditCardId");
             ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerId");
-            ViewData["RoomId"] = new SelectList(_context.Rooms, "RoomId", "RoomId");
+            ViewData["RoomId"] = new SelectList(_context.Rooms, "RoomId", "RoomNumber");
             return View();
         }
 
@@ -69,24 +71,22 @@ namespace HotelWebApp.Controllers
                     CheckInDate = booking.CheckInDate,
                     CheckOutDate = booking.CheckOutDate,
                     NumberOfGuests = booking.NumberOfGuests,
+                    Price = booking.Price,
+                    CreditCardId = booking.CreditCardId,
                     DepositMade = booking.DepositMade,
                     DepositMethod = booking.DepositMethod,
                     DepositStatus = booking.DepositStatus,
                     BookingReference = booking.BookingReference,
                 };
 
+
                 _context.Bookings.Add(bookings);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-
-            foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
-            {
-                Console.WriteLine("Validation Error: " + error.ErrorMessage);  // Output errors to the console
-            }
-
+            ViewData["CreditCardId"] = new SelectList(_context.CreditCards, "CreditCardId", "CreditCardId", booking.CreditCardId);
             ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerId", booking.CustomerId);
-            ViewData["RoomId"] = new SelectList(_context.Rooms, "RoomId", "RoomId", booking.RoomId);
+            ViewData["RoomId"] = new SelectList(_context.Rooms, "RoomId", "RoomNumber", booking.RoomId);
             return View(booking);
         }
 
@@ -103,8 +103,9 @@ namespace HotelWebApp.Controllers
             {
                 return NotFound();
             }
+            ViewData["CreditCardId"] = new SelectList(_context.CreditCards, "CreditCardId", "CreditCardId", booking.CreditCardId);
             ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerId", booking.CustomerId);
-            ViewData["RoomId"] = new SelectList(_context.Rooms, "RoomId", "RoomId", booking.RoomId);
+            ViewData["RoomId"] = new SelectList(_context.Rooms, "RoomId", "RoomNumber", booking.RoomId);
             return View(booking);
         }
 
@@ -131,10 +132,13 @@ namespace HotelWebApp.Controllers
                     bookings.CheckInDate = booking.CheckInDate;
                     bookings.CheckOutDate = booking.CheckOutDate;
                     bookings.NumberOfGuests = booking.NumberOfGuests;
+                    bookings.Price = booking.Price;
+                    bookings.CreditCardId = booking.CreditCardId;
                     bookings.DepositMade = booking.DepositMade;
                     bookings.DepositMethod = booking.DepositMethod;
                     bookings.DepositStatus = booking.DepositStatus;
                     bookings.BookingReference = booking.BookingReference;
+
 
                     _context.Bookings.Update(bookings);
                     await _context.SaveChangesAsync();
@@ -152,8 +156,9 @@ namespace HotelWebApp.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["CreditCardId"] = new SelectList(_context.CreditCards, "CreditCardId", "CreditCardId", booking.CreditCardId);
             ViewData["CustomerId"] = new SelectList(_context.Customers, "CustomerId", "CustomerId", booking.CustomerId);
-            ViewData["RoomId"] = new SelectList(_context.Rooms, "RoomId", "RoomId", booking.RoomId);
+            ViewData["RoomId"] = new SelectList(_context.Rooms, "RoomId", "RoomNumber", booking.RoomId);
             return View(booking);
         }
 
@@ -166,6 +171,7 @@ namespace HotelWebApp.Controllers
             }
 
             var booking = await _context.Bookings
+                .Include(b => b.CreditCard)
                 .Include(b => b.Customer)
                 .Include(b => b.Room)
                 .FirstOrDefaultAsync(m => m.BookingId == id);

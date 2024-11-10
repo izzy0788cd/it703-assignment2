@@ -21,7 +21,7 @@ namespace HotelWebApp.Controllers
         // GET: Customers
         public async Task<IActionResult> Index()
         {
-            var hotelDbContext = _context.Customers.Include(c => c.Agency).Include(c => c.Company);
+            var hotelDbContext = _context.Customers.Include(c => c.Agency).Include(c => c.Company).Include(c => c.CreditCard);
             return View(await hotelDbContext.ToListAsync());
         }
 
@@ -36,6 +36,7 @@ namespace HotelWebApp.Controllers
             var customer = await _context.Customers
                 .Include(c => c.Agency)
                 .Include(c => c.Company)
+                .Include(c => c.CreditCard)
                 .FirstOrDefaultAsync(m => m.CustomerId == id);
             if (customer == null)
             {
@@ -50,6 +51,7 @@ namespace HotelWebApp.Controllers
         {
             ViewData["AgencyId"] = new SelectList(_context.TravelAgencies, "AgencyId", "AgencyId");
             ViewData["CompanyId"] = new SelectList(_context.Companies, "CompanyId", "CompanyId");
+            ViewData["CreditCardId"] = new SelectList(_context.CreditCards, "CreditCardId", "CreditCardId");
             return View();
         }
 
@@ -58,7 +60,7 @@ namespace HotelWebApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CustomerId,FirstName,LastName,Email,Phone,Notes,CompanyId,AgencyId,BookingReference")] Customer customer)
+        public async Task<IActionResult> Create([Bind("CustomerId,FirstName,LastName,CreditCardId,Email,Phone,Notes,CompanyId,AgencyId,BookingReference")] Customer customer)
         {
             if (ModelState.IsValid)
             {
@@ -68,6 +70,7 @@ namespace HotelWebApp.Controllers
             }
             ViewData["AgencyId"] = new SelectList(_context.TravelAgencies, "AgencyId", "AgencyId", customer.AgencyId);
             ViewData["CompanyId"] = new SelectList(_context.Companies, "CompanyId", "CompanyId", customer.CompanyId);
+            ViewData["CreditCardId"] = new SelectList(_context.CreditCards, "CreditCardId", "CreditCardId", customer.CreditCardId);
             return View(customer);
         }
 
@@ -86,6 +89,7 @@ namespace HotelWebApp.Controllers
             }
             ViewData["AgencyId"] = new SelectList(_context.TravelAgencies, "AgencyId", "AgencyId", customer.AgencyId);
             ViewData["CompanyId"] = new SelectList(_context.Companies, "CompanyId", "CompanyId", customer.CompanyId);
+            ViewData["CreditCardId"] = new SelectList(_context.CreditCards, "CreditCardId", "CreditCardId", customer.CreditCardId);
             return View(customer);
         }
 
@@ -94,7 +98,7 @@ namespace HotelWebApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("CustomerId,FirstName,LastName,Email,Phone,Notes,CompanyId,AgencyId,BookingReference")] Customer customer)
+        public async Task<IActionResult> Edit(int id, [Bind("CustomerId,FirstName,LastName,CreditCardId,Email,Phone,Notes,CompanyId,AgencyId,BookingReference")] Customer customer)
         {
             if (id != customer.CustomerId)
             {
@@ -123,6 +127,7 @@ namespace HotelWebApp.Controllers
             }
             ViewData["AgencyId"] = new SelectList(_context.TravelAgencies, "AgencyId", "AgencyId", customer.AgencyId);
             ViewData["CompanyId"] = new SelectList(_context.Companies, "CompanyId", "CompanyId", customer.CompanyId);
+            ViewData["CreditCardId"] = new SelectList(_context.CreditCards, "CreditCardId", "CreditCardId", customer.CreditCardId);
             return View(customer);
         }
 
@@ -137,6 +142,7 @@ namespace HotelWebApp.Controllers
             var customer = await _context.Customers
                 .Include(c => c.Agency)
                 .Include(c => c.Company)
+                .Include(c => c.CreditCard)
                 .FirstOrDefaultAsync(m => m.CustomerId == id);
             if (customer == null)
             {

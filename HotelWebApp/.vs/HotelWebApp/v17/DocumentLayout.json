@@ -3,8 +3,28 @@
   "WorkspaceRootPath": "D:\\00 GitHub\\it703-assignment2\\HotelWebApp\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{F34C28AE-B67D-41C8-8156-CD736FC8D932}|HotelWebApp.csproj|d:\\00 github\\it703-assignment2\\hotelwebapp\\controllers\\roomscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F34C28AE-B67D-41C8-8156-CD736FC8D932}|HotelWebApp.csproj|solutionrelative:controllers\\roomscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F34C28AE-B67D-41C8-8156-CD736FC8D932}|HotelWebApp.csproj|d:\\00 github\\it703-assignment2\\hotelwebapp\\views\\rooms\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F34C28AE-B67D-41C8-8156-CD736FC8D932}|HotelWebApp.csproj|solutionrelative:views\\rooms\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F34C28AE-B67D-41C8-8156-CD736FC8D932}|HotelWebApp.csproj|d:\\00 github\\it703-assignment2\\hotelwebapp\\models\\room.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F34C28AE-B67D-41C8-8156-CD736FC8D932}|HotelWebApp.csproj|solutionrelative:models\\room.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{F34C28AE-B67D-41C8-8156-CD736FC8D932}|HotelWebApp.csproj|d:\\00 github\\it703-assignment2\\hotelwebapp\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{F34C28AE-B67D-41C8-8156-CD736FC8D932}|HotelWebApp.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F34C28AE-B67D-41C8-8156-CD736FC8D932}|HotelWebApp.csproj|d:\\00 github\\it703-assignment2\\hotelwebapp\\controllers\\restaurantscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F34C28AE-B67D-41C8-8156-CD736FC8D932}|HotelWebApp.csproj|solutionrelative:controllers\\restaurantscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F34C28AE-B67D-41C8-8156-CD736FC8D932}|HotelWebApp.csproj|d:\\00 github\\it703-assignment2\\hotelwebapp\\controllers\\creditcardscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F34C28AE-B67D-41C8-8156-CD736FC8D932}|HotelWebApp.csproj|solutionrelative:controllers\\creditcardscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,7 +34,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -26,15 +46,80 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Room.cs",
+              "DocumentMoniker": "D:\\00 GitHub\\it703-assignment2\\HotelWebApp\\Models\\Room.cs",
+              "RelativeDocumentMoniker": "Models\\Room.cs",
+              "ToolTip": "D:\\00 GitHub\\it703-assignment2\\HotelWebApp\\Models\\Room.cs",
+              "RelativeToolTip": "Models\\Room.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAA5wBEAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-10T04:21:07.7Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "D:\\00 GitHub\\it703-assignment2\\HotelWebApp\\Views\\Rooms\\Create.cshtml",
+              "RelativeDocumentMoniker": "Views\\Rooms\\Create.cshtml",
+              "ToolTip": "D:\\00 GitHub\\it703-assignment2\\HotelWebApp\\Views\\Rooms\\Create.cshtml",
+              "RelativeToolTip": "Views\\Rooms\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-10T04:19:28.312Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "RoomsController.cs",
+              "DocumentMoniker": "D:\\00 GitHub\\it703-assignment2\\HotelWebApp\\Controllers\\RoomsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\RoomsController.cs",
+              "ToolTip": "D:\\00 GitHub\\it703-assignment2\\HotelWebApp\\Controllers\\RoomsController.cs",
+              "RelativeToolTip": "Controllers\\RoomsController.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAwwCgAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-10T04:18:57.466Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "D:\\00 GitHub\\it703-assignment2\\HotelWebApp\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
               "ToolTip": "D:\\00 GitHub\\it703-assignment2\\HotelWebApp\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAACYAAAAdAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC4AAAB5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-10T01:54:19.292Z",
+              "WhenOpened": "2024-11-10T04:12:37.142Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "RestaurantsController.cs",
+              "DocumentMoniker": "D:\\00 GitHub\\it703-assignment2\\HotelWebApp\\Controllers\\RestaurantsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\RestaurantsController.cs",
+              "ToolTip": "D:\\00 GitHub\\it703-assignment2\\HotelWebApp\\Controllers\\RestaurantsController.cs",
+              "RelativeToolTip": "Controllers\\RestaurantsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-10T04:12:18.531Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CreditCardsController.cs",
+              "DocumentMoniker": "D:\\00 GitHub\\it703-assignment2\\HotelWebApp\\Controllers\\CreditCardsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\CreditCardsController.cs",
+              "ToolTip": "D:\\00 GitHub\\it703-assignment2\\HotelWebApp\\Controllers\\CreditCardsController.cs",
+              "RelativeToolTip": "Controllers\\CreditCardsController.cs",
+              "ViewState": "AgIAADcAAAAAAAAAAAA0wAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-10T04:11:41.23Z",
               "EditorCaption": ""
             }
           ]

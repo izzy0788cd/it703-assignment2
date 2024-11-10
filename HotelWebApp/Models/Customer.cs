@@ -11,6 +11,8 @@ public partial class Customer
 
     public string LastName { get; set; } = null!;
 
+    public int? CreditCardId { get; set; }
+
     public string Email { get; set; } = null!;
 
     public string Phone { get; set; } = null!;
@@ -28,4 +30,6 @@ public partial class Customer
     public virtual ICollection<Booking> Bookings { get; set; } = new List<Booking>();
 
     public virtual Company? Company { get; set; }
+
+    public virtual CreditCard? CreditCard { get; set; }
 }

@@ -1,4 +1,4 @@
-﻿@model HotelWebApp.Models.Room
+﻿@model HotelWebApp.Models.RoomsDTO
 
 @{
     ViewData["Title"] = "Create";
@@ -13,6 +13,11 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
+                <label asp-for="RoomNumber" class="control-label"></label>
+                <input asp-for="RoomNumber" class="form-control" />
+                <span asp-validation-for="RoomNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="RoomTypeId" class="control-label"></label>
                 <select asp-for="RoomTypeId" class ="form-control" asp-items="ViewBag.RoomTypeId"></select>
             </div>
@@ -24,11 +29,6 @@
                 <label class="form-check-label">
                     <input class="form-check-input" asp-for="BookingAvailable" /> @Html.DisplayNameFor(model => model.BookingAvailable)
                 </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="RoomNumber" class="control-label"></label>
-                <input asp-for="RoomNumber" class="form-control" />
-                <span asp-validation-for="RoomNumber" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="CarPark" class="control-label"></label>

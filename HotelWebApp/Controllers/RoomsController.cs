@@ -48,8 +48,8 @@ namespace HotelWebApp.Controllers
         // GET: Rooms/Create
         public IActionResult Create()
         {
-            ViewData["RoomTypeId"] = new SelectList(_context.RoomTypes, "RoomTypeId", "RoomTypeId");
-            ViewData["StatusId"] = new SelectList(_context.RoomStatuses, "StatusId", "StatusId");
+            ViewData["RoomTypeId"] = new SelectList(_context.RoomTypes, "RoomTypeId", "TypeName");
+            ViewData["StatusId"] = new SelectList(_context.RoomStatuses, "StatusName", "StatusName");
             return View();
         }
 
@@ -72,19 +72,13 @@ namespace HotelWebApp.Controllers
                     CarPark = room.CarPark,
                 };
 
-                _context.Rooms.Add(rooms);
 
+                _context.Rooms.Add(rooms);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-
-            foreach (var error in ModelState.Values.SelectMany(v => v.Errors))
-            {
-                Console.WriteLine("Validation Error: " + error.ErrorMessage);  // Output errors to the console
-            }
-
-            ViewData["RoomTypeId"] = new SelectList(_context.RoomTypes, "RoomTypeId", "RoomTypeId", room.RoomTypeId);
-            ViewData["StatusId"] = new SelectList(_context.RoomStatuses, "StatusId", "StatusId", room.StatusId);
+            ViewData["RoomTypeId"] = new SelectList(_context.RoomTypes, "RoomTypeId", "TypeName", room.RoomTypeId);
+            ViewData["StatusId"] = new SelectList(_context.RoomStatuses, "StatusId", "StatusName", room.StatusId);
             return View(room);
         }
 
@@ -101,8 +95,8 @@ namespace HotelWebApp.Controllers
             {
                 return NotFound();
             }
-            ViewData["RoomTypeId"] = new SelectList(_context.RoomTypes, "RoomTypeId", "RoomTypeId", room.RoomTypeId);
-            ViewData["StatusId"] = new SelectList(_context.RoomStatuses, "StatusId", "StatusId", room.StatusId);
+            ViewData["RoomTypeId"] = new SelectList(_context.RoomTypes, "RoomTypeId", "TypeName", room.RoomTypeId);
+            ViewData["StatusId"] = new SelectList(_context.RoomStatuses, "StatusId", "StatusName", room.StatusId);
             return View(room);
         }
 
@@ -131,6 +125,7 @@ namespace HotelWebApp.Controllers
                     rooms.BookingAvailable = room.BookingAvailable;
                     rooms.CarPark = room.CarPark;
 
+
                     _context.Rooms.Update(rooms);
                     await _context.SaveChangesAsync();
                 }
@@ -147,8 +142,8 @@ namespace HotelWebApp.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["RoomTypeId"] = new SelectList(_context.RoomTypes, "RoomTypeId", "RoomTypeId", room.RoomTypeId);
-            ViewData["StatusId"] = new SelectList(_context.RoomStatuses, "StatusId", "StatusId", room.StatusId);
+            ViewData["RoomTypeId"] = new SelectList(_context.RoomTypes, "RoomTypeId", "TypeName", room.RoomTypeId);
+            ViewData["StatusId"] = new SelectList(_context.RoomStatuses, "StatusId", "StatusName", room.StatusId);
             return View(room);
         }
 
