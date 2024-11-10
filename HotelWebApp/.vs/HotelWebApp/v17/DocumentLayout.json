@@ -3,16 +3,8 @@
   "WorkspaceRootPath": "D:\\00 GitHub\\it703-assignment2\\HotelWebApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F34C28AE-B67D-41C8-8156-CD736FC8D932}|HotelWebApp.csproj|d:\\00 github\\it703-assignment2\\hotelwebapp\\controllers\\bookingscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F34C28AE-B67D-41C8-8156-CD736FC8D932}|HotelWebApp.csproj|solutionrelative:controllers\\bookingscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F34C28AE-B67D-41C8-8156-CD736FC8D932}|HotelWebApp.csproj|d:\\00 github\\it703-assignment2\\hotelwebapp\\models\\bookingsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F34C28AE-B67D-41C8-8156-CD736FC8D932}|HotelWebApp.csproj|solutionrelative:models\\bookingsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F34C28AE-B67D-41C8-8156-CD736FC8D932}|HotelWebApp.csproj|d:\\00 github\\it703-assignment2\\hotelwebapp\\models\\booking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F34C28AE-B67D-41C8-8156-CD736FC8D932}|HotelWebApp.csproj|solutionrelative:models\\booking.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F34C28AE-B67D-41C8-8156-CD736FC8D932}|HotelWebApp.csproj|d:\\00 github\\it703-assignment2\\hotelwebapp\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F34C28AE-B67D-41C8-8156-CD736FC8D932}|HotelWebApp.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +14,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,41 +26,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "BookingsDTO.cs",
-              "DocumentMoniker": "D:\\00 GitHub\\it703-assignment2\\HotelWebApp\\Models\\BookingsDTO.cs",
-              "RelativeDocumentMoniker": "Models\\BookingsDTO.cs",
-              "ToolTip": "D:\\00 GitHub\\it703-assignment2\\HotelWebApp\\Models\\BookingsDTO.cs",
-              "RelativeToolTip": "Models\\BookingsDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-10T01:31:53.887Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Booking.cs",
-              "DocumentMoniker": "D:\\00 GitHub\\it703-assignment2\\HotelWebApp\\Models\\Booking.cs",
-              "RelativeDocumentMoniker": "Models\\Booking.cs",
-              "ToolTip": "D:\\00 GitHub\\it703-assignment2\\HotelWebApp\\Models\\Booking.cs",
-              "RelativeToolTip": "Models\\Booking.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAA9wB0AAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-10T01:31:31.407Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "BookingsController.cs",
-              "DocumentMoniker": "D:\\00 GitHub\\it703-assignment2\\HotelWebApp\\Controllers\\BookingsController.cs",
-              "RelativeDocumentMoniker": "Controllers\\BookingsController.cs",
-              "ToolTip": "D:\\00 GitHub\\it703-assignment2\\HotelWebApp\\Controllers\\BookingsController.cs",
-              "RelativeToolTip": "Controllers\\BookingsController.cs",
-              "ViewState": "AgIAAI8AAAAAAAAAAAAuwIcAAABCAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-10T01:31:24.449Z",
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\00 GitHub\\it703-assignment2\\HotelWebApp\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\00 GitHub\\it703-assignment2\\HotelWebApp\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAACYAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-10T01:54:19.292Z",
               "EditorCaption": ""
             }
           ]
